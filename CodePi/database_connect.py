@@ -7,7 +7,7 @@ def insertStudent(qr):
     query=(qr)
     cursor.execute(query)
     result=cursor.fetchone()
-    print result
+    print result[0]
 
     
 

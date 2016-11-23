@@ -6,6 +6,7 @@ from time import sleep, strftime
 from datetime import datetime
 from Adafruit_CharLCD import Adafruit_CharLCD
 from database_connect import insertStudent
+from db_helper import *
 
 continue_reading = True
 
@@ -83,11 +84,10 @@ while continue_reading:
              name=line[(line.index(' ')+1):]
              
              found=True
-             
-             
 
+
+     #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
       
-      insertStudent("select * from counter where rfid=`0`")
         
       lcdmod(name, 2, False)
 
