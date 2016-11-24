@@ -5,7 +5,7 @@ from subprocess import *
 from time import sleep, strftime
 from datetime import datetime
 from Adafruit_CharLCD import Adafruit_CharLCD
-from database_connect import insertStudent
+#from database_connect import insertStudent
 from db_helper import *
 
 continue_reading = True
@@ -89,7 +89,7 @@ while continue_reading:
      #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
       
         
-      lcdmod(name, 2, False)
+      lcdmod(getName(stdid), 2, False)
 
 
 
