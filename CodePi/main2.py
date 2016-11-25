@@ -71,26 +71,11 @@ while continue_reading:
         # Print UID
       stdid = str(uid[0]) + "." + str(uid[1]) + "." + str(uid[2]) + "." + str(uid[3])
       print "id = "+stdid+"\n"
-      #get corresponding student name
-      found=False
-
-      name="invalid id"
-      with open("info.txt") as f:
-         line=f.readline()
-         if stdid not in line:
-             print "not ok"
-             #continue
-         else:
-             name=line[(line.index(' ')+1):]
-             
-             found=True
-
-
-     #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
       
-      print stdid
-      print getName(stdid)
+     #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
+      lcdmod("ID Read\nWait...)", 1, False)
       lcdmod(getName(stdid), 2, False)
+      
 
 
 
