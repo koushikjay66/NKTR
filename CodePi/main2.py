@@ -55,6 +55,7 @@ lcdmod("Welcome to Our \nProject ", 1, False)
 details=getCourse()
 courseID=details[0:6]
 section =details[7:]
+resetCount()
 lcdmod("Course: "+courseID+"\nSection:"+section, 5, True)
 
 while continue_reading:
