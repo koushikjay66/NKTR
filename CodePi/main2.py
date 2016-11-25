@@ -7,6 +7,7 @@ from datetime import datetime
 from Adafruit_CharLCD import Adafruit_CharLCD
 #from database_connect import insertStudent
 from db_helper import *
+from ip import *
 
 continue_reading = True
 
@@ -50,7 +51,11 @@ def lcdmod(displayText, time, boolean):
 # Welcome message
 print "Welcome to Our Project "
 lcdmod("Welcome to Our \nProject ", 1, False)
-
+#It is time to get the Course ID and Section From Server
+details=getCourse()
+courseID=details[0:6]
+section =details[7:]
+lcdmod("Course: "+courseID+"\nSection:"+section, 5, True)
 
 while continue_reading:
     lcdmod(getRoomtatus(), 1, True)
