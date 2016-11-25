@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import mysql.connector
 
 #This is for To open the Connection
@@ -30,25 +29,27 @@ def getName(UID):
         return "Welcome\n"+res
 
 
+
+
 #This method is for getting the Current Student and Current People in Room Status It uses a local Database Buit in pi
 
-def getCurrentStatus():
-    conn = mysql.connector.connect(user='root', password='Nopassword01', host='52.165.29.136', database='CSE360')
-
-
-=======
-import mysql.connector
-conn=mysql.connector.connect(user='root', password='Nopassword01', host='52.165.29.136', database='CSE360')
-
-def getName(UID):
-    sql = "SELECT name from student where rfid=\""+UID+"\""
+def getRoomtatus():
+    conn = mysql.connector.connect(user='root', password='root', host='localhost', database='pi_counter')
+    #Remember There is no null check. So it cant be Null Means This value will always be set.
+    sql = "SELECT rfid, ir FROM counter WHERE id = '13101206'"
     cursor=conn.cursor()    
     query=(sql)
     cursor.execute(query)
     result=cursor.fetchone()
-    return result[0]
+    if not result:
+        return "Error\nConcact for Help"
+    else:
+        rfid = result[0]
+        ir=result[01]
+        closeConn(conn)
+        return "Attendace: "+str(rfid)+"\nIn Room: "+str(ir)
 
-conn.close()
 
 
->>>>>>> 7d39dfe55b645f3bbb0ebf2eab49bde47f466fe8
+
+#print getCurrentStatus()

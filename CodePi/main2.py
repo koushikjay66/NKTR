@@ -53,7 +53,8 @@ lcdmod("Welcome to Our \nProject ", 1, False)
 
 
 while continue_reading:
-
+    lcdmod(getRoomtatus(), 1, True)
+    
     # Scan for cards
     (status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
@@ -72,7 +73,7 @@ while continue_reading:
       stdid = str(uid[0]) + "." + str(uid[1]) + "." + str(uid[2]) + "." + str(uid[3])
       print "id = "+stdid+"\n"
       
-     #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
+     #Now as I have got the id from RFID in stdid We can query to get the Name.
       lcdmod("ID Read\nWait...)", 1, False)
       lcdmod(getName(stdid), 2, False)
       
