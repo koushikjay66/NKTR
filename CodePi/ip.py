@@ -5,3 +5,7 @@ def getCourse():
         return "error"
     else:
        return slot.content
+
+def getDate():
+    date=requests.get("http://192.168.1.116/NKTR/getCourseid/getDate.php")
+    return date.content

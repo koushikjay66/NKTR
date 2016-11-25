@@ -51,10 +51,14 @@ def lcdmod(displayText, time, boolean):
 # Welcome message
 print "Welcome to Our Project "
 lcdmod("Welcome to Our \nProject ", 1, False)
+
+
 #It is time to get the Course ID and Section From Server
 details=getCourse()
 courseID=details[0:6]
 section =details[7:]
+
+#Rest the Inroom People C
 resetCount()
 lcdmod("Course: "+courseID+"\nSection:"+section, 5, True)
 
@@ -81,6 +85,7 @@ while continue_reading:
       
      #Now as I have got the id from RFID in stdid We can query to get the Name.
       lcdmod("ID Read\nWait...)", 1, False)
+      attendance(stdid,courseID, section)
       lcdmod(getName(stdid), 2, False)
       
 

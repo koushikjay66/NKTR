@@ -1,4 +1,5 @@
 import mysql.connector
+from ip import *
 
 #This is for To open the Connection
 
@@ -32,7 +33,7 @@ def getName(UID):
 
 
 
-#This method is for getting the Current Student and Current People in Room Status It uses a local Database Buit in pi
+#These methods are for getting the Current Student and Current People in Room Status It uses a local Database Buit in pi
 
 def getRoomtatus():
     conn = openlocal()
@@ -92,7 +93,26 @@ def resetCount():
     conn.commit()
     closeConn(conn)
 
-              
-resetCount()
+
+
+# Now the methods are for inserting to the Server side database        
+def attendance(UID, courseid, section):
+    conn = openConn()
+    date=getDate()
+
+    sql = "INSERT into attendance values ( ( SELECT studentid from student where rfid=\""+UID+"\"),\""+date+"\", "+section+", \""+courseid+"\")"
+    try:
+        cursor=conn.cursor()    
+        query=(sql)
+        cursor.execute(query)
+        conn.commit()
+        updateRFIDCount()
+    except :
+        print "ID Not Found"
+    finally:
+        closeConn(conn)
+    
+
+#attendance("", "sf", "7")
 
     
