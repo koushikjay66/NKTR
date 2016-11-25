@@ -88,8 +88,12 @@ while continue_reading:
 
      #@koushik Now as I have got the id from RFID in stdid We can query to get the Name.
       
+<<<<<<< HEAD
       print stdid
       print getName(stdid)
+=======
+        
+>>>>>>> 7d39dfe55b645f3bbb0ebf2eab49bde47f466fe8
       lcdmod(getName(stdid), 2, False)
 
 

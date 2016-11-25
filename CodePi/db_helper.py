@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import mysql.connector
 
 #This is for To open the Connection
@@ -35,3 +36,19 @@ def getCurrentStatus():
     conn = mysql.connector.connect(user='root', password='Nopassword01', host='52.165.29.136', database='CSE360')
 
 
+=======
+import mysql.connector
+conn=mysql.connector.connect(user='root', password='Nopassword01', host='52.165.29.136', database='CSE360')
+
+def getName(UID):
+    sql = "SELECT name from student where rfid=\""+UID+"\""
+    cursor=conn.cursor()    
+    query=(sql)
+    cursor.execute(query)
+    result=cursor.fetchone()
+    return result[0]
+
+conn.close()
+
+
+>>>>>>> 7d39dfe55b645f3bbb0ebf2eab49bde47f466fe8
