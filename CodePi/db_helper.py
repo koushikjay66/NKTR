@@ -4,7 +4,7 @@ from ip import *
 #This is for To open the Connection
 
 def openConn():
-    return mysql.connector.connect(user='root', password='Nopassword01', host='52.165.29.136', database='CSE360')
+    return mysql.connector.connect(user='root', password='', host='192.168.1.116', database='CSE360')
 def openlocal():
     return mysql.connector.connect(user='root', password='root', host='localhost', database='pi_counter')
 
@@ -47,7 +47,7 @@ def getRoomtatus():
         return "Error\nConcact for Help"
     else:
         rfid = result[0]
-        ir=result[0]
+        ir=result[1]
         closeConn(conn)
         return "Attendace: "+str(rfid)+"\nIn Room: "+str(ir)
 
@@ -101,11 +101,13 @@ def attendance(UID, courseid, section):
     date=getDate()
 
     sql = "INSERT into attendance values ( ( SELECT studentid from student where rfid=\""+UID+"\"),\""+date+"\", "+section+", \""+courseid+"\")"
+    print sql
     try:
         cursor=conn.cursor()    
         query=(sql)
         cursor.execute(query)
         conn.commit()
+        print 'r'
         updateRFIDCount()
     except :
         print "ID Not Found"
