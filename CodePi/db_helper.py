@@ -4,7 +4,7 @@ from ip import *
 #This is for To open the Connection
 
 def openConn():
-    return mysql.connector.connect(user='root', password='', host='192.168.1.116', database='CSE360')
+    return mysql.connector.connect(user='root', password='Nopassword01', host='172.16.34.36', database='CSE360')
 def openlocal():
     return mysql.connector.connect(user='root', password='root', host='localhost', database='pi_counter')
 
